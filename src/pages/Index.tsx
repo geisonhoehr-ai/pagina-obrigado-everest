@@ -4,6 +4,7 @@ import { Confetti } from '@/components/Confetti'
 import { cn } from '@/lib/utils'
 import { AlertTriangle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const AnimatedElement = ({
   children,
@@ -38,7 +39,7 @@ export default function ThankYouPage() {
   return (
     <>
       <Confetti />
-      <div className="w-full max-w-3xl text-center flex flex-col items-center space-y-6 md:space-y-8 p-4">
+      <div className="w-full max-w-3xl text-center flex flex-col items-center space-y-6 md:space-y-8 p-4 sm:p-6 md:p-8">
         <AnimatedElement delay={200}>
           <img
             src="https://img.usecurling.com/i?q=trophy&color=yellow&shape=fill"
@@ -100,7 +101,7 @@ export default function ThankYouPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 w-full">
             <Button
               asChild
-              className="w-full sm:w-auto min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px] shadow-elevation"
+              className="w-full sm:w-auto min-w-[240px] sm:min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px] shadow-elevation"
             >
               <a
                 href="https://chat.whatsapp.com/D3hgVDf0Rax5Y6wiBjL1PO"
@@ -117,7 +118,7 @@ export default function ThankYouPage() {
             </Button>
             <Button
               asChild
-              className="w-full sm:w-auto min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-telegram-blue hover:bg-telegram-blue/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px] shadow-elevation"
+              className="w-full sm:w-auto min-w-[240px] sm:min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-telegram-blue hover:bg-telegram-blue/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px] shadow-elevation"
             >
               <a
                 href="https://t.me/+1wjcPlzeJCw2YzVh"
@@ -132,6 +133,25 @@ export default function ThankYouPage() {
                 Entrar no Grupo do Telegram
               </a>
             </Button>
+          </div>
+        </AnimatedElement>
+
+        <AnimatedElement delay={1500} className="w-full pt-8 md:pt-12">
+          <div className="border-t w-full pt-8 md:pt-12 flex flex-col items-center text-center">
+            <Avatar className="w-20 h-20 md:w-24 md:h-24 mb-4">
+              <AvatarImage src="https://img.usecurling.com/ppl/medium?gender=male&seed=tiago" />
+              <AvatarFallback>TC</AvatarFallback>
+            </Avatar>
+            <blockquote className="max-w-2xl text-base md:text-lg italic text-foreground">
+              "Sua jornada para o sucesso começa agora. Estamos juntos nessa
+              escalada!"
+            </blockquote>
+            <p className="mt-4 font-semibold text-foreground">
+              Professor Tiago Costa
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Professor de Português e Redação
+            </p>
           </div>
         </AnimatedElement>
       </div>
