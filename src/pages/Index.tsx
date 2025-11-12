@@ -59,7 +59,7 @@ export default function ThankYouPage() {
             </p>
           </AnimatedElement>
           <AnimatedElement delay={900}>
-            <p className="text-base md:text-[1.2rem] text-secondary-foreground">
+            <p className="text-base md:text-[1.2rem] text-orange-500 font-semibold">
               Agora você pode acessar o Curso Everest e aproveitar todo o
               conteúdo já disponível!
             </p>
