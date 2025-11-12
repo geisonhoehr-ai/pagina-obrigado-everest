@@ -4,6 +4,7 @@ import { Confetti } from '@/components/Confetti'
 import { cn } from '@/lib/utils'
 import { AlertTriangle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 
 const AnimatedElement = ({
   children,
@@ -96,7 +97,28 @@ export default function ThankYouPage() {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={1300} className="w-full">
+        <AnimatedElement delay={1300} className="w-full pt-4">
+          <div className="space-y-4 w-full">
+            <p className="text-[0.9rem] md:text-[1.1rem] font-semibold text-foreground">
+              Assista ao vídeo de boas-vindas:
+            </p>
+            <AspectRatio
+              ratio={16 / 9}
+              className="rounded-lg overflow-hidden shadow-elevation"
+            >
+              <iframe
+                src="https://www.youtube.com/embed/3pM5V7kUzCE"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </AspectRatio>
+          </div>
+        </AnimatedElement>
+
+        <AnimatedElement delay={1500} className="w-full">
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 w-full">
             <Button
               asChild
@@ -135,7 +157,7 @@ export default function ThankYouPage() {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={1500} className="w-full pt-8 md:pt-12">
+        <AnimatedElement delay={1700} className="w-full pt-8 md:pt-12">
           <div className="border-t w-full pt-8 md:pt-12 flex flex-col items-center text-center">
             <blockquote className="max-w-2xl text-base md:text-lg italic text-foreground">
               "Sua jornada para o sucesso começa agora. Estamos juntos nessa
