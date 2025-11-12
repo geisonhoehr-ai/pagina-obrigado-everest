@@ -4,7 +4,6 @@ import { Confetti } from '@/components/Confetti'
 import { cn } from '@/lib/utils'
 import { AlertTriangle } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const AnimatedElement = ({
   children,
@@ -138,10 +137,6 @@ export default function ThankYouPage() {
 
         <AnimatedElement delay={1500} className="w-full pt-8 md:pt-12">
           <div className="border-t w-full pt-8 md:pt-12 flex flex-col items-center text-center">
-            <Avatar className="w-20 h-20 md:w-24 md:h-24 mb-4">
-              <AvatarImage src="https://img.usecurling.com/ppl/medium?gender=male&seed=tiago" />
-              <AvatarFallback>TC</AvatarFallback>
-            </Avatar>
             <blockquote className="max-w-2xl text-base md:text-lg italic text-foreground">
               "Sua jornada para o sucesso começa agora. Estamos juntos nessa
               escalada!"
