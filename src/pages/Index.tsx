@@ -1,12 +1,129 @@
-/* Home Page - Replace this page layout, components, content, behavior with what you want and translate to the language of the user */
-const Index = () => {
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Confetti } from '@/components/Confetti'
+import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+
+const AnimatedElement = ({
+  children,
+  delay,
+  className,
+}: {
+  children: React.ReactNode
+  delay: number
+  className?: string
+}) => {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), delay)
+    return () => clearTimeout(timer)
+  }, [delay])
+
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-6">
-        This is a example page ready to be rewritten with your own content
-      </h1>
+    <div
+      className={cn(
+        'transition-all duration-400 ease-out',
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2.5',
+        className,
+      )}
+    >
+      {children}
     </div>
   )
 }
 
-export default Index
+export default function ThankYouPage() {
+  return (
+    <>
+      <Confetti />
+      <div className="w-full max-w-3xl text-center flex flex-col items-center space-y-6 md:space-y-8 p-4">
+        <AnimatedElement delay={200}>
+          <img
+            src="https://img.usecurling.com/i?q=trophy&color=yellow&shape=fill"
+            alt="Troféu Dourado"
+            className="w-20 h-20 md:w-[120px] md:h-[120px] animate-pulse-trophy"
+          />
+        </AnimatedElement>
+
+        <div className="space-y-4">
+          <AnimatedElement delay={500}>
+            <h1 className="text-[1.8rem] md:text-[2.5rem] font-semibold text-foreground">
+              Olá !
+            </h1>
+          </AnimatedElement>
+          <AnimatedElement delay={700}>
+            <p className="text-[2.2rem] leading-tight md:text-3xl font-bold text-primary">
+              Parabéns pela decisão e bem-vindo(a) rumo ao topo! 🚀
+            </p>
+          </AnimatedElement>
+          <AnimatedElement delay={900}>
+            <p className="text-base md:text-[1.2rem] text-[hsl(var(--secondary))]">
+              Agora você pode acessar o Curso Everest e aproveitar todo o
+              conteúdo já disponível!
+            </p>
+          </AnimatedElement>
+        </div>
+
+        <AnimatedElement delay={1100} className="w-full pt-4">
+          <div className="space-y-2 w-full">
+            <p className="text-[0.9rem] md:text-[1.1rem] font-semibold text-foreground">
+              Aqui estão seus dados de acesso:
+            </p>
+            <Card className="bg-muted w-full text-left">
+              <CardHeader className="p-5">
+                <CardTitle className="text-base font-semibold">
+                  Dados de Acesso
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-5 pt-0">
+                <p className="text-sm text-muted-foreground italic">
+                  Seus dados de acesso aparecerão aqui.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </AnimatedElement>
+
+        <AnimatedElement delay={1300} className="w-full">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 w-full">
+            <Button
+              asChild
+              className="w-full sm:w-auto min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px]"
+            >
+              <a
+                href="https://chat.whatsapp.com/D3hgVDf0Rax5Y6wiBjL1PO"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://img.usecurling.com/i?q=whatsapp&color=white"
+                  alt="WhatsApp Icon"
+                  className="w-6 h-6 mr-2.5"
+                />
+                Entrar no Grupo do WhatsApp
+              </a>
+            </Button>
+            <Button
+              asChild
+              className="w-full sm:w-auto min-w-[280px] h-12 md:h-14 text-base md:text-[1.1rem] bg-telegram-blue hover:bg-telegram-blue/90 text-white font-semibold transition-transform hover:scale-[1.02] rounded-[10px]"
+            >
+              <a
+                href="https://t.me/+1wjcPlzeJCw2YzVh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://img.usecurling.com/i?q=telegram&color=white"
+                  alt="Telegram Icon"
+                  className="w-6 h-6 mr-2.5"
+                />
+                Entrar no Grupo do Telegram
+              </a>
+            </Button>
+          </div>
+        </AnimatedElement>
+      </div>
+    </>
+  )
+}
